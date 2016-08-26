@@ -1,0 +1,40 @@
+<div class="header">
+  <div class="navbar-header">
+    <h2 style="color:white"><a href="#login">PolicyBazaar : Store</a></h2>
+  </div>
+  <div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#cart"><img style="height:60px" src="./image/add_to_shopping_cart.png"></a>
+        <span style="color: red;z-index: 1000;right: 50px;position: absolute;top: 45px;font-size: 30px;">{{cart.length}}</span>
+      </li>
+      <li><a href="#login"><img style="height:60px" src="./image/inside-logout-icon.png"></a>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="col-lg-2">
+
+</div>
+<div class="col-lg-8 table-responsive" style="margin-top:20px">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Insurance Placn</th>
+                <th>Product Name</th>
+                <th>Price($)</th>
+                <th>qty</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="policy in cart">
+               <td><img src="{{policy.imageSrc}}"></td>
+               <td>{{policy.name}}</td>
+               <td>{{policy.price}}/-</a></td>
+               <td>{{policy.qty}}</td>
+        </tr>
+    </tbody>
+    </table>
+    <button class="btn btn-primary btn-lg btn-block" ng-click="payNow()">PayNow</button><br>
+</div>
+<div class="col-lg-2"></div>
+</div>

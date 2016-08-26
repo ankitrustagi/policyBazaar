@@ -1,0 +1,30 @@
+<div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+  <div class="modal-content">
+      <div class="modal-header">
+          <h1 class="text-center">Login</h1>
+      </div>
+      <div class="modal-body">
+          <form class="form col-md-12 center-block" name="loginForm">
+            <div class="form-group">
+              <input type="email" name='email' class="form-control input-lg" placeholder="Email(ankit@policybazaar.com)" ng-model='user.email' required>
+              <span style="color:red" ng-show="loginForm.email.$invalid && loginForm.email.$viewValue">Enter a valid email</span>
+            </div>
+            <div class="form-group">
+              <input type="password" name='password' class="form-control input-lg" ng-pattern="/(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&]).{8,}/" placeholder="Password(pass@1234)" ng-model="user.password" required>
+              <span style="color:red" ng-show="loginForm.password.$invalid && loginForm.password.$viewValue">Enter atleast one character, number and special character(!@#$%^&) and 8 characters</span>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary btn-lg btn-block" ng-disabled="loginForm.$invalid" ng-click="authenticateUser(user)">Sign In</button><br>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary btn-lg btn-block" ng-click="reset()">Reset</button><br>
+              <span class="pull-right"><a href="#/newUser">Register</a></span><br>
+            </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+      </div>
+  </div>
+  </div>
+</div>

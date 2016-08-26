@@ -1,0 +1,51 @@
+<div class="header">
+  <div class="navbar-header">
+    <h2 style="color:white"><a href="#login">PolicyBazaar : Store</a></h2>
+  </div>
+  <div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav navbar-right">
+      <li>
+          <a href="#cart"><img style="height:60px" src="./image/add_to_shopping_cart.png"></a>
+          <span style="color: red;z-index: 1000;right: 50px;position: absolute;top: 45px;font-size: 30px;">{{cart.length}}</span>
+      </li>
+      <li><a href="#login"><img style="height:60px" src="./image/inside-logout-icon.png"></a>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="col-lg-2">
+
+</div>
+<div class="col-lg-8 table-responsive" style="margin-top:20px">
+    <span style="margin-top:5px">Welcome to the policybazaar store</span><br>
+    <span style="margin-top:5px">Please select the product you want and add item to your shopping cart.</span><br>
+    <span style="margin-top:5px">When you are done.Click the shopping cart icon to review your order and checkout.</span><br>
+
+    <label style="margin-top:20px">Search
+    <input type="text" ng-model="localSearchText" placeholder="search text" />
+    </label>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Insurance Placn</th>
+                <th>Product Name</th>
+                <th>Price(INR)</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="policy in policies | filter:localSearchText">
+             <td><img src="{{policy.imageSrc}}"></td>
+             <td>{{policy.name}}</td>
+             <td>{{policy.price}}/-</a></td>
+             <td>
+              <button ng-if="!policy.addedToCart && selectedPolicy.id != policy.id" ng-click="addPolicy(policy)" class="btn btn-default">Add to Cart</button>
+              <button ng-if="policy.id == selectedPolicy.id" ng-click="goToCart()" class="btn btn-default">Go to Cart</button>
+            </td>
+        </tr>
+    </tbody>
+    </table>
+</div>
+<div class="col-lg-2">
+</div>
+</div>
